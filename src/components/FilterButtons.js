@@ -2,7 +2,7 @@ import React from "react"
 import { useDispatch, useSelector } from "react-redux";
 import { filterTodo, markAllCompleted } from "../redux/actions";
 
-const FilterButton= () => {
+const FilterButtons= () => {
 
     const dispatch = useDispatch();
     const currentFilter = useSelector((state) => state.filter);
@@ -26,5 +26,5 @@ const FilterButton= () => {
   )
 };
 
-export default FilterButton
+export default FilterButtons;
 ;

@@ -1,14 +1,7 @@
-import { configureStore, combineReducers } from "@reduxjs/toolkit";
+import { createStore } from "@reduxjs/toolkit";
+import todoReducer from "./reducers";
 
-const reducer = combineReducers({
-    
-});
 
-const initialState = {};
-
-const store = configureStore({
-    reducer,
-    preloadedState: initialState
-});
+const store = createStore(todoReducer);
 
 export default store;

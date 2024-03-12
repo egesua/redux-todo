@@ -1,9 +1,24 @@
 import React, { useState } from "react"
 import { BsPlus } from "react-icons/bs";
+import { useDispatch } from "react-redux";
+import { addTodo } from "../redux/actions";
 
 const Todo = () => {
 
+    const dispatch = useDispatch()
+
     const [newTodoText, setNewTodoText] = useState("");
+
+    const handleAddTodo = (text) => {
+        dispatch(addTodo);
+    }
+
+    const handleAddTodoClick = () => {
+        if (newTodoText.trim() !== ""){
+            handleAddTodo(newTodoText.trim());
+            setNewTodoText("");
+        }
+    }
 
   return (
     <div className="max-w-4xl mx-auto sm:mt-8 p-4 bg-gray-100 rounded">
@@ -13,8 +28,10 @@ const Todo = () => {
             <input value={newTodoText} onChange={(e) => setNewTodoText(e.target.value)} type="text" name="text" id="addTodoInput" placeholder="Add Todo"
             className=" flex-grow p-2 border-b-2 border-gray-300 focus:outline-none focus:border-blue-500"/>
             <button 
-            className="ml-4 p-2 bg-blue-500 text-white rounded hover:bg-blue-600 focus:outline-none"><BsPlus /></button>
+            className="ml-4 p-2 bg-blue-500 text-white rounded hover:bg-blue-600 focus:outline-none" onClick={handleAddTodoClick}><BsPlus /></button>
       </div>
+
+      
     </div>
   )
 };

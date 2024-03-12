@@ -1,7 +1,7 @@
 import React from "react";
 import { FaCheck, FaTimes, FaToggleOff, FaToggleOn } from "react-icons/fa";
 import { useDispatch } from "react-redux";
-import { markCompleted, toggleTodo } from "../redux/actions";
+import { markCompleted, markIncomplete, toggleTodo } from "../redux/actions";
 
 export const TodoItem = ({ todo, index }) => {
   const dispatch = useDispatch();
@@ -36,8 +36,8 @@ export const TodoItem = ({ todo, index }) => {
         
         {todo.completed && (
           <button
-            onClick={() => dispatch(markCompleted(index))}
-            className="mr-2 text-sm bg-blue-500 text-white sm:px-2 py-1 px-1 rounded"
+            onClick={() => dispatch(markIncomplete(index))}
+            className="mr-2 text-sm bg-yellow-500 text-white sm:px-2 py-1 px-1 rounded"
           >
             <FaTimes />
           </button>
